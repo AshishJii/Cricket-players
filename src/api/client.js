@@ -7,6 +7,9 @@
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api/v2.0';
 const API_KEY = import.meta.env.VITE_API_KEY || '';
 
+
+console.log("HIHIHIHIHHIHIH ")
+console.log(API_KEY);
 /**
  * Builds a full API URL with the api_token appended.
  *
