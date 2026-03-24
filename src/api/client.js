@@ -6,7 +6,7 @@
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api/v2.0';
 const API_KEY = import.meta.env.VITE_API_KEY || '';
-
+ 
 
 console.log("HIHIHIHIHHIHIH ")
 console.log(API_KEY);
@@ -40,6 +40,8 @@ function buildUrl(path, params = {}) {
  */
 export async function apiGet(path, params = {}) {
   const url = buildUrl(path, params);
+  console.log('Fetching from URL:', url.toString());
+
   const response = await fetch(url, {
     method: 'GET',
     headers: {
@@ -48,6 +50,7 @@ export async function apiGet(path, params = {}) {
   });
 
   if (!response.ok) {
+    console.error('API request failed:', response.status, response.statusText, 'URL:', url.toString());
     throw new Error(`API error ${response.status}: ${response.statusText}`);
   }
 
