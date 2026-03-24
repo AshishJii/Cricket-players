@@ -4,8 +4,8 @@
  * Injects api_token into every request automatically.
  */
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api/v2.0';
-const API_KEY = import.meta.env.VITE_SPORTMONKS_API_KEY || '';
+const API_BASE_URL = import.meta.env.API_BASE_URL || '/api/v2.0';
+const API_KEY = import.meta.env.API_KEY || '';
 
 /**
  * Builds a full API URL with the api_token appended.
