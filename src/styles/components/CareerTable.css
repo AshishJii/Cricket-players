@@ -1,0 +1,84 @@
+/**
+ * CareerTable component styles.
+ */
+
+.career-table {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  gap: var(--space-6);
+}
+
+.career-table__card {
+  background: var(--gradient-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  transition: border-color var(--transition-fast);
+}
+
+.career-table__card:hover {
+  border-color: var(--color-accent);
+}
+
+.career-table__type-badge {
+  display: inline-flex;
+  align-self: flex-start;
+  background: var(--color-accent-dim);
+  border: 1px solid rgba(88, 166, 255, 0.3);
+  color: var(--color-accent);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  padding: var(--space-1) var(--space-4);
+  border-radius: var(--radius-full);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.career-table__section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.career-table__section-title {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--space-2);
+}
+
+.career-table__stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(5rem, 1fr));
+  gap: var(--space-3);
+}
+
+.career-table__stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.career-table__stat-label {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.career-table__stat-value {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  line-height: 1;
+}
+
+.career-table__empty {
+  text-align: center;
+  color: var(--color-text-muted);
+  padding: var(--space-8);
+}
