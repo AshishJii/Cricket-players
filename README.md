@@ -5,10 +5,11 @@ A performant, React-based Single Page Application (SPA) designed to display cric
 ## Features
 
 - **Players Listing**: Paginated grid view showing cricket players.
-- **Advanced Filtering**: Client-side filtering by Search (last name), Country, and Position.
+- **Advanced Filtering**: Client-side filtering by Search (last name), Country, Position, and **Career Tournament Type**.
 - **Sorting**: Order the list by First Name, ID, or Recently Updated.
 - **Detailed Player Profiles**: Dedicated pages featuring personal metadata, photos, and a comprehensive, aggregated career statistics table.
 - **Optimized Caching**: Utilizes **IndexedDB** to cache large API datasets (with a 24-hour TTL). This prevents redundant network requests, massively improves perceived load times, and saves API quota.
+- **Dynamic Background Compilation**: Career filtering dynamically fetches the massive career API payload asynchronously and parses it into an optimized mapping table that's cached into IndexedDB, avoiding expensive on-the-fly rendering logic.
 - **URL State Synchronization**: All filters, sorting, and pagination parameters are synced with the URL query string, making the application state fully shareable and deep-linkable.
 - **Vanilla CSS Architecture**: Built using native CSS Custom Properties (CSS variables) to create a sleek, modern, dark-themed design system without the overhead of heavy CSS frameworks.
 
@@ -35,7 +36,7 @@ A performant, React-based Single Page Application (SPA) designed to display cric
 2. **Environment Configuration**
    Copy `.env.example` to `.env` (or create a new `.env` file) and add your SportMonks API key:
    ```env
-   VITE_SPORTMONKS_API_KEY=your_api_key_here
+   VITE_API_KEY=your_api_key_here
    
    # For local development, this relies on the Vite proxy in vite.config.js to bypass CORS
    VITE_API_BASE_URL=/api/v2.0
