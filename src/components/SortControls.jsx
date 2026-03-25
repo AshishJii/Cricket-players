@@ -3,6 +3,7 @@
  * @description Sort field buttons with ascending/descending toggle.
  */
 
+import { ChevronUpIcon } from "./icons/ChevronUpIcon.jsx";
 import "../styles/components/SortControls.css";
 
 /** @type {Array<{field: string, label: string}>} */
@@ -49,19 +50,12 @@ export function SortControls({ sortField, sortOrder, onSortChange }) {
             >
               {label}
               {isActive && (
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  aria-hidden="true"
+                <ChevronUpIcon
                   style={{
                     transform:
                       "asc" === sortOrder ? "rotate(0deg)" : "rotate(180deg)",
                   }}
-                >
-                  <polyline points="18 15 12 9 6 15" />
-                </svg>
+                />
               )}
             </button>
           );

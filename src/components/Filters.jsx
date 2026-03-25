@@ -4,6 +4,9 @@
  */
 
 import { CAREER_TYPES } from "../utils/constants.js";
+import { GlobeIcon } from "./icons/GlobeIcon.jsx";
+import { UserIcon } from "./icons/UserIcon.jsx";
+import { StarIcon } from "./icons/StarIcon.jsx";
 import "../styles/components/Filters.css";
 
 /**
@@ -54,17 +57,7 @@ export function Filters({
     <div className="filters" role="group" aria-label="Filter players">
       {/* Country filter */}
       <div className="filter-select-wrap">
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          aria-hidden="true"
-        >
-          <circle cx="12" cy="12" r="10" />
-          <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
-          <path d="M2 12h20" />
-        </svg>
+        <GlobeIcon />
 
         <select
           className="filter-select"
@@ -84,16 +77,7 @@ export function Filters({
 
       {/* Position filter */}
       <div className="filter-select-wrap">
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          aria-hidden="true"
-        >
-          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-          <circle cx="9" cy="7" r="4" />
-        </svg>
+        <UserIcon />
 
         <select
           className="filter-select"
@@ -113,15 +97,7 @@ export function Filters({
 
       {/* Career Type filter */}
       <div className="filter-select-wrap">
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          aria-hidden="true"
-        >
-          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-        </svg>
+        <StarIcon />
 
         <select
           className="filter-select"

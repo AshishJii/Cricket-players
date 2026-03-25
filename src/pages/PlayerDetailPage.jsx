@@ -9,6 +9,7 @@ import { usePlayerDetail } from "../hooks/usePlayerDetail.js";
 import { useCountries } from "../hooks/useCountries.js";
 import { CareerTable } from "../components/CareerTable.jsx";
 import { ErrorState } from "../components/ErrorState.jsx";
+import { ChevronLeftIcon } from "../components/icons/ChevronLeftIcon.jsx";
 import { formatDate, calculateAge } from "../utils/formatDate.js";
 import "../styles/PlayerDetailPage.css";
 import "../styles/components/PlayerSkeleton.css";
@@ -89,15 +90,7 @@ export function PlayerDetailPage() {
           className="detail-page__back"
           aria-label="Back to players list"
         >
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            aria-hidden="true"
-          >
-            <polyline points="15 18 9 12 15 6" />
-          </svg>
+          <ChevronLeftIcon />
           Back to Players
         </Link>
       </div>

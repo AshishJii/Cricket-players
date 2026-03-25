@@ -4,6 +4,8 @@
  * Shows up to 7 page buttons with ellipsis for large page counts.
  */
 
+import { ChevronLeftIcon } from "./icons/ChevronLeftIcon.jsx";
+import { ChevronRightIcon } from "./icons/ChevronRightIcon.jsx";
 import "../styles/components/Pagination.css";
 
 /**
@@ -65,17 +67,7 @@ export function Pagination({
         disabled={1 === currentPage}
         aria-label="Previous page"
       >
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          aria-hidden="true"
-        >
-          <polyline points="15 18 9 12 15 6" />
-        </svg>
+        <ChevronLeftIcon width="16" height="16" />
       </button>
 
       {/* Page numbers */}
@@ -108,17 +100,7 @@ export function Pagination({
         disabled={currentPage === totalPages}
         aria-label="Next page"
       >
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          aria-hidden="true"
-        >
-          <polyline points="9 18 15 12 9 6" />
-        </svg>
+        <ChevronRightIcon width="16" height="16" />
       </button>
     </nav>
   );
