@@ -1,0 +1,46 @@
+/**
+ * ErrorState and EmptyState styles.
+ */
+
+.error-state,
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-16) var(--space-8);
+  gap: var(--space-4);
+}
+
+.error-state__icon,
+.empty-state__icon {
+  font-size: var(--font-size-4xl);
+  line-height: 1;
+}
+
+.error-state__message,
+.empty-state__message {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-lg);
+  max-width: 28rem;
+  line-height: var(--line-height-relaxed);
+}
+
+.error-state__retry {
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-full);
+  padding: var(--space-3) var(--space-6);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  transition:
+    background var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.error-state__retry:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-1px);
+}
