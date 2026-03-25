@@ -3,7 +3,7 @@
  * @description API functions for fetching cricket player data from SportMonks.
  */
 
-import { apiGet } from './client.js';
+import { apiGet } from "./client.js";
 
 /**
  * Fetches all players from the SportMonks API.
@@ -12,7 +12,7 @@ import { apiGet } from './client.js';
  * @returns {Promise<Array<Object>>} Array of player objects.
  */
 export async function fetchAllPlayers() {
-  return apiGet('/players');
+  return apiGet("/players");
 }
 
 /**
@@ -22,5 +22,15 @@ export async function fetchAllPlayers() {
  * @returns {Promise<Object>} Player object with nested career array.
  */
 export async function fetchPlayerById(playerId) {
-  return apiGet(`/players/${playerId}`, { include: 'career' });
+  return apiGet(`/players/${playerId}`, { include: "career" });
+}
+
+/**
+ * Fetches all players from the SportMonks API, including their career stats.
+ * Used for building the background career filters map.
+ *
+ * @returns {Promise<Array<Object>>} Array of player objects with nested career.
+ */
+export async function fetchAllPlayersWithCareer() {
+  return apiGet("/players", { include: "career" });
 }

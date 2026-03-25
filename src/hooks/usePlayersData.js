@@ -4,9 +4,9 @@
  * On first load, fetches ~10MB from SportMonks and persists in IndexedDB (24h TTL).
  */
 
-import { useState, useEffect } from 'react';
-import { fetchAllPlayers } from '../api/players.js';
-import { getCachedPlayers, setCachedPlayers } from '../db/index.js';
+import { useState, useEffect } from "react";
+import { fetchAllPlayers } from "../api/players.js";
+import { getCachedPlayers, setCachedPlayers } from "../db/index.js";
 
 /**
  * @typedef {Object} PlayersDataResult
@@ -51,7 +51,7 @@ export function usePlayersData() {
         }
       } catch (err) {
         if (!cancelled) {
-          setError(err.message || 'Failed to load players.');
+          setError(err.message || "Failed to load players.");
         }
       } finally {
         if (!cancelled) {

@@ -12,7 +12,7 @@
  *  - player_details – keyPath: 'id'  (stores individual player objects with career)
  */
 
-import { openDB } from 'idb';
+import { openDB } from "idb";
 
 /** Cache time-to-live in milliseconds (24 hours). */
 const CACHE_TTL_MS = 24 * 60 * 60 * 1000;
@@ -28,16 +28,16 @@ let dbPromise = null;
  */
 function getDb() {
   if (null === dbPromise) {
-    dbPromise = openDB('cricket_app', 1, {
+    dbPromise = openDB("cricket_app", 1, {
       upgrade(db) {
-        if (!db.objectStoreNames.contains('players')) {
-          db.createObjectStore('players', { keyPath: 'key' });
+        if (!db.objectStoreNames.contains("players")) {
+          db.createObjectStore("players", { keyPath: "key" });
         }
-        if (!db.objectStoreNames.contains('countries')) {
-          db.createObjectStore('countries', { keyPath: 'key' });
+        if (!db.objectStoreNames.contains("countries")) {
+          db.createObjectStore("countries", { keyPath: "key" });
         }
-        if (!db.objectStoreNames.contains('player_details')) {
-          db.createObjectStore('player_details', { keyPath: 'id' });
+        if (!db.objectStoreNames.contains("player_details")) {
+          db.createObjectStore("player_details", { keyPath: "id" });
         }
       },
     });
@@ -63,7 +63,7 @@ function isCacheValid(cachedAt) {
  */
 export async function getCachedPlayers() {
   const db = await getDb();
-  const entry = await db.get('players', 'all');
+  const entry = await db.get("players", "all");
   if (entry && isCacheValid(entry.cachedAt)) {
     return entry.data;
   }
@@ -78,7 +78,7 @@ export async function getCachedPlayers() {
  */
 export async function setCachedPlayers(players) {
   const db = await getDb();
-  await db.put('players', { key: 'all', data: players, cachedAt: Date.now() });
+  await db.put("players", { key: "all", data: players, cachedAt: Date.now() });
 }
 
 /**
@@ -88,7 +88,7 @@ export async function setCachedPlayers(players) {
  */
 export async function getCachedCountries() {
   const db = await getDb();
-  const entry = await db.get('countries', 'all');
+  const entry = await db.get("countries", "all");
   if (entry && isCacheValid(entry.cachedAt)) {
     return entry.data;
   }
@@ -103,7 +103,11 @@ export async function getCachedCountries() {
  */
 export async function setCachedCountries(countries) {
   const db = await getDb();
-  await db.put('countries', { key: 'all', data: countries, cachedAt: Date.now() });
+  await db.put("countries", {
+    key: "all",
+    data: countries,
+    cachedAt: Date.now(),
+  });
 }
 
 /**
@@ -114,7 +118,7 @@ export async function setCachedCountries(countries) {
  */
 export async function getCachedPlayerDetail(playerId) {
   const db = await getDb();
-  const entry = await db.get('player_details', Number(playerId));
+  const entry = await db.get("player_details", Number(playerId));
   if (entry && isCacheValid(entry.cachedAt)) {
     return entry;
   }
@@ -129,5 +133,34 @@ export async function getCachedPlayerDetail(playerId) {
  */
 export async function setCachedPlayerDetail(player) {
   const db = await getDb();
-  await db.put('player_details', { ...player, cachedAt: Date.now() });
+  await db.put("player_details", { ...player, cachedAt: Date.now() });
+}
+
+/**
+ * Retrieves the cached career map.
+ *
+ * @returns {Promise<Object|null>} Cached career map, or null if missing/stale.
+ */
+export async function getCachedCareerMap() {
+  const db = await getDb();
+  const entry = await db.get("players", "career_map");
+  if (entry && isCacheValid(entry.cachedAt)) {
+    return entry.data;
+  }
+  return null;
+}
+
+/**
+ * Stores the career player map in IndexedDB.
+ *
+ * @param {Object} map - The map of career type -> player IDs.
+ * @returns {Promise<void>}
+ */
+export async function setCachedCareerMap(map) {
+  const db = await getDb();
+  await db.put("players", {
+    key: "career_map",
+    data: map,
+    cachedAt: Date.now(),
+  });
 }

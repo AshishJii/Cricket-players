@@ -3,7 +3,7 @@
  * @description Loading skeleton placeholder for player cards.
  */
 
-import '../styles/components/PlayerSkeleton.css';
+import "../styles/components/PlayerSkeleton.css";
 
 /**
  * Renders a single skeleton card with shimmer animation.

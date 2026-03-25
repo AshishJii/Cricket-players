@@ -4,14 +4,14 @@
  * Fetches player with career stats from IndexedDB cache or API.
  */
 
-import { Link, useParams } from 'react-router-dom';
-import { usePlayerDetail } from '../hooks/usePlayerDetail.js';
-import { useCountries } from '../hooks/useCountries.js';
-import { CareerTable } from '../components/CareerTable.jsx';
-import { ErrorState } from '../components/ErrorState.jsx';
-import { formatDate, calculateAge } from '../utils/formatDate.js';
-import '../styles/PlayerDetailPage.css';
-import '../styles/components/PlayerSkeleton.css';
+import { Link, useParams } from "react-router-dom";
+import { usePlayerDetail } from "../hooks/usePlayerDetail.js";
+import { useCountries } from "../hooks/useCountries.js";
+import { CareerTable } from "../components/CareerTable.jsx";
+import { ErrorState } from "../components/ErrorState.jsx";
+import { formatDate, calculateAge } from "../utils/formatDate.js";
+import "../styles/PlayerDetailPage.css";
+import "../styles/components/PlayerSkeleton.css";
 
 /**
  * Renders a loading skeleton for the detail hero section.
@@ -21,14 +21,32 @@ import '../styles/components/PlayerSkeleton.css';
 function DetailSkeleton() {
   return (
     <div className="detail-skeleton__hero">
-      <div className="detail-skeleton__image skeleton-shimmer" aria-hidden="true" />
+      <div
+        className="detail-skeleton__image skeleton-shimmer"
+        aria-hidden="true"
+      />
       <div className="detail-skeleton__info">
-        <div className="detail-skeleton__name skeleton-shimmer" aria-hidden="true" />
-        <div className="detail-skeleton__badge skeleton-shimmer" aria-hidden="true" />
+        <div
+          className="detail-skeleton__name skeleton-shimmer"
+          aria-hidden="true"
+        />
+        <div
+          className="detail-skeleton__badge skeleton-shimmer"
+          aria-hidden="true"
+        />
         <div className="detail-skeleton__meta">
-          <div className="detail-skeleton__meta-item skeleton-shimmer" aria-hidden="true" />
-          <div className="detail-skeleton__meta-item skeleton-shimmer" aria-hidden="true" />
-          <div className="detail-skeleton__meta-item skeleton-shimmer" aria-hidden="true" />
+          <div
+            className="detail-skeleton__meta-item skeleton-shimmer"
+            aria-hidden="true"
+          />
+          <div
+            className="detail-skeleton__meta-item skeleton-shimmer"
+            aria-hidden="true"
+          />
+          <div
+            className="detail-skeleton__meta-item skeleton-shimmer"
+            aria-hidden="true"
+          />
         </div>
       </div>
     </div>
@@ -47,7 +65,7 @@ function MetaItem({ label, value }) {
   return (
     <div className="detail-hero__meta-item">
       <span className="detail-hero__meta-label">{label}</span>
-      <span className="detail-hero__meta-value">{value || '—'}</span>
+      <span className="detail-hero__meta-value">{value || "—"}</span>
     </div>
   );
 }
@@ -66,7 +84,11 @@ export function PlayerDetailPage() {
   return (
     <div className="detail-page">
       <div className="container">
-        <Link to="/" className="detail-page__back" aria-label="Back to players list">
+        <Link
+          to="/"
+          className="detail-page__back"
+          aria-label="Back to players list"
+        >
           <svg
             viewBox="0 0 24 24"
             fill="none"
@@ -101,14 +123,17 @@ export function PlayerDetailPage() {
                     {player.image_path ? (
                       <img
                         src={player.image_path}
-                        alt={`${player.fullname || 'Player'} profile`}
+                        alt={`${player.fullname || "Player"} profile`}
                         className="detail-hero__image"
                         width="192"
                         height="192"
                         loading="eager"
                       />
                     ) : (
-                      <div className="detail-hero__image-fallback" aria-hidden="true">
+                      <div
+                        className="detail-hero__image-fallback"
+                        aria-hidden="true"
+                      >
                         🏏
                       </div>
                     )}
@@ -118,12 +143,14 @@ export function PlayerDetailPage() {
                   <div className="detail-hero__info">
                     <h1 className="detail-hero__name">
                       {player.fullname ||
-                        `${player.firstname || ''} ${player.lastname || ''}`.trim() ||
-                        'Unknown Player'}
+                        `${player.firstname || ""} ${player.lastname || ""}`.trim() ||
+                        "Unknown Player"}
                     </h1>
 
                     {player.position?.name && (
-                      <span className="detail-hero__position">{player.position.name}</span>
+                      <span className="detail-hero__position">
+                        {player.position.name}
+                      </span>
                     )}
 
                     <div className="detail-hero__meta">
@@ -144,15 +171,30 @@ export function PlayerDetailPage() {
                               {country.name}
                             </>
                           ) : (
-                            '—'
+                            "—"
                           )
                         }
                       />
-                      <MetaItem label="Date of Birth" value={formatDate(player.dateofbirth)} />
-                      <MetaItem label="Age" value={null !== age ? `${age} years` : '—'} />
-                      <MetaItem label="Gender" value={'m' === player.gender ? 'Male' : 'Female'} />
-                      <MetaItem label="Batting Style" value={player.battingstyle} />
-                      <MetaItem label="Bowling Style" value={player.bowlingstyle} />
+                      <MetaItem
+                        label="Date of Birth"
+                        value={formatDate(player.dateofbirth)}
+                      />
+                      <MetaItem
+                        label="Age"
+                        value={null !== age ? `${age} years` : "—"}
+                      />
+                      <MetaItem
+                        label="Gender"
+                        value={"m" === player.gender ? "Male" : "Female"}
+                      />
+                      <MetaItem
+                        label="Batting Style"
+                        value={player.battingstyle}
+                      />
+                      <MetaItem
+                        label="Bowling Style"
+                        value={player.bowlingstyle}
+                      />
                     </div>
                   </div>
                 </div>

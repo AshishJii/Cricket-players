@@ -3,9 +3,9 @@
  * @description Displays a cricket player's summary card. Clicking navigates to detail page.
  */
 
-import { Link } from 'react-router-dom';
-import { formatDate } from '../utils/formatDate.js';
-import '../../src/styles/components/PlayerCard.css';
+import { Link } from "react-router-dom";
+import { formatDate } from "../utils/formatDate.js";
+import "../../src/styles/components/PlayerCard.css";
 
 /**
  * @param {Object} props
@@ -25,8 +25,11 @@ export function PlayerCard({ player, country }) {
     position,
   } = player;
 
-  const displayName = fullname || `${firstname || ''} ${lastname || ''}`.trim() || 'Unknown Player';
-  const countryName = country?.name || 'Unknown Country';
+  const displayName =
+    fullname ||
+    `${firstname || ""} ${lastname || ""}`.trim() ||
+    "Unknown Player";
+  const countryName = country?.name || "Unknown Country";
   const positionName = position?.name || null;
 
   return (
@@ -51,7 +54,9 @@ export function PlayerCard({ player, country }) {
             🏏
           </div>
         )}
-        {positionName && <span className="player-card__badge">{positionName}</span>}
+        {positionName && (
+          <span className="player-card__badge">{positionName}</span>
+        )}
       </div>
 
       {/* Card body */}

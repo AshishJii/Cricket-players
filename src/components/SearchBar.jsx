@@ -3,8 +3,8 @@
  * @description Real-time search bar with debouncing (300ms) and submit support.
  */
 
-import { useRef, useEffect, useState } from 'react';
-import '../styles/components/SearchBar.css';
+import { useRef, useEffect, useState } from "react";
+import "../styles/components/SearchBar.css";
 
 const DEBOUNCE_MS = 300;
 
@@ -52,13 +52,17 @@ export function SearchBar({ value, onChange }) {
    * Clears the search input.
    */
   function handleClear() {
-    setLocalValue('');
+    setLocalValue("");
     clearTimeout(timerRef.current);
-    onChange('');
+    onChange("");
   }
 
   return (
-    <form onSubmit={handleSubmit} role="search" aria-label="Search players by last name">
+    <form
+      onSubmit={handleSubmit}
+      role="search"
+      aria-label="Search players by last name"
+    >
       <div className="search-bar">
         {/* Search icon */}
         <svg

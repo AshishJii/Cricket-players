@@ -3,7 +3,7 @@
  * @description Displays a player's career statistics grouped by match type.
  */
 
-import '../styles/components/CareerTable.css';
+import "../styles/components/CareerTable.css";
 
 /**
  * Formats a numeric stat value, returning '—' for null/undefined.
@@ -13,8 +13,8 @@ import '../styles/components/CareerTable.css';
  * @returns {string} Formatted value.
  */
 function formatStat(value, decimals = 2) {
-  if (null === value || undefined === value) return '—';
-  return 'number' === typeof value ? value.toFixed(decimals) : String(value);
+  if (null === value || undefined === value) return "—";
+  return "number" === typeof value ? value.toFixed(decimals) : String(value);
 }
 
 /**
@@ -32,43 +32,63 @@ function BattingStats({ batting }) {
       <div className="career-table__stats-grid">
         <div className="career-table__stat">
           <span className="career-table__stat-label">Matches</span>
-          <span className="career-table__stat-value">{batting.matches ?? '—'}</span>
+          <span className="career-table__stat-value">
+            {batting.matches ?? "—"}
+          </span>
         </div>
         <div className="career-table__stat">
           <span className="career-table__stat-label">Innings</span>
-          <span className="career-table__stat-value">{batting.innings ?? '—'}</span>
+          <span className="career-table__stat-value">
+            {batting.innings ?? "—"}
+          </span>
         </div>
         <div className="career-table__stat">
           <span className="career-table__stat-label">Runs</span>
-          <span className="career-table__stat-value">{batting.runs_scored ?? '—'}</span>
+          <span className="career-table__stat-value">
+            {batting.runs_scored ?? "—"}
+          </span>
         </div>
         <div className="career-table__stat">
           <span className="career-table__stat-label">Highest</span>
-          <span className="career-table__stat-value">{batting.highest_inning_score ?? '—'}</span>
+          <span className="career-table__stat-value">
+            {batting.highest_inning_score ?? "—"}
+          </span>
         </div>
         <div className="career-table__stat">
           <span className="career-table__stat-label">Average</span>
-          <span className="career-table__stat-value">{formatStat(batting.average)}</span>
+          <span className="career-table__stat-value">
+            {formatStat(batting.average)}
+          </span>
         </div>
         <div className="career-table__stat">
           <span className="career-table__stat-label">Strike Rate</span>
-          <span className="career-table__stat-value">{formatStat(batting.strike_rate)}</span>
+          <span className="career-table__stat-value">
+            {formatStat(batting.strike_rate)}
+          </span>
         </div>
         <div className="career-table__stat">
           <span className="career-table__stat-label">100s</span>
-          <span className="career-table__stat-value">{batting.hundreds ?? '—'}</span>
+          <span className="career-table__stat-value">
+            {batting.hundreds ?? "—"}
+          </span>
         </div>
         <div className="career-table__stat">
           <span className="career-table__stat-label">50s</span>
-          <span className="career-table__stat-value">{batting.fifties ?? '—'}</span>
+          <span className="career-table__stat-value">
+            {batting.fifties ?? "—"}
+          </span>
         </div>
         <div className="career-table__stat">
           <span className="career-table__stat-label">4s</span>
-          <span className="career-table__stat-value">{batting.four_x ?? '—'}</span>
+          <span className="career-table__stat-value">
+            {batting.four_x ?? "—"}
+          </span>
         </div>
         <div className="career-table__stat">
           <span className="career-table__stat-label">6s</span>
-          <span className="career-table__stat-value">{batting.six_x ?? '—'}</span>
+          <span className="career-table__stat-value">
+            {batting.six_x ?? "—"}
+          </span>
         </div>
       </div>
     </div>
@@ -90,39 +110,57 @@ function BowlingStats({ bowling }) {
       <div className="career-table__stats-grid">
         <div className="career-table__stat">
           <span className="career-table__stat-label">Matches</span>
-          <span className="career-table__stat-value">{bowling.matches ?? '—'}</span>
+          <span className="career-table__stat-value">
+            {bowling.matches ?? "—"}
+          </span>
         </div>
         <div className="career-table__stat">
           <span className="career-table__stat-label">Innings</span>
-          <span className="career-table__stat-value">{bowling.innings ?? '—'}</span>
+          <span className="career-table__stat-value">
+            {bowling.innings ?? "—"}
+          </span>
         </div>
         <div className="career-table__stat">
           <span className="career-table__stat-label">Wickets</span>
-          <span className="career-table__stat-value">{bowling.wickets ?? '—'}</span>
+          <span className="career-table__stat-value">
+            {bowling.wickets ?? "—"}
+          </span>
         </div>
         <div className="career-table__stat">
           <span className="career-table__stat-label">Runs</span>
-          <span className="career-table__stat-value">{bowling.runs ?? '—'}</span>
+          <span className="career-table__stat-value">
+            {bowling.runs ?? "—"}
+          </span>
         </div>
         <div className="career-table__stat">
           <span className="career-table__stat-label">Average</span>
-          <span className="career-table__stat-value">{formatStat(bowling.average)}</span>
+          <span className="career-table__stat-value">
+            {formatStat(bowling.average)}
+          </span>
         </div>
         <div className="career-table__stat">
           <span className="career-table__stat-label">Economy</span>
-          <span className="career-table__stat-value">{formatStat(bowling.econ_rate)}</span>
+          <span className="career-table__stat-value">
+            {formatStat(bowling.econ_rate)}
+          </span>
         </div>
         <div className="career-table__stat">
           <span className="career-table__stat-label">Strike Rate</span>
-          <span className="career-table__stat-value">{formatStat(bowling.strike_rate)}</span>
+          <span className="career-table__stat-value">
+            {formatStat(bowling.strike_rate)}
+          </span>
         </div>
         <div className="career-table__stat">
           <span className="career-table__stat-label">4W</span>
-          <span className="career-table__stat-value">{bowling.four_wickets ?? '—'}</span>
+          <span className="career-table__stat-value">
+            {bowling.four_wickets ?? "—"}
+          </span>
         </div>
         <div className="career-table__stat">
           <span className="career-table__stat-label">5W</span>
-          <span className="career-table__stat-value">{bowling.five_wickets ?? '—'}</span>
+          <span className="career-table__stat-value">
+            {bowling.five_wickets ?? "—"}
+          </span>
         </div>
       </div>
     </div>
@@ -138,7 +176,7 @@ function BowlingStats({ bowling }) {
 function groupByType(career) {
   const map = new Map();
   career.forEach((entry) => {
-    const type = entry.type || 'Other';
+    const type = entry.type || "Other";
     if (!map.has(type)) {
       map.set(type, []);
     }
@@ -176,7 +214,10 @@ function mergeEntries(entries) {
         // Recalculate average
         const outs = b.innings - b.not_outs;
         b.average = 0 < outs ? b.runs_scored / outs : b.runs_scored;
-        b.highest_inning_score = Math.max(b.highest_inning_score || 0, n.highest_inning_score || 0);
+        b.highest_inning_score = Math.max(
+          b.highest_inning_score || 0,
+          n.highest_inning_score || 0,
+        );
       }
     }
 
@@ -198,7 +239,15 @@ function mergeEntries(entries) {
 }
 
 /** Preferred order for match type tabs. */
-const TYPE_ORDER = ['Test', 'ODI', 'T20I', 'T20', 'First-class', 'List A', 'Other'];
+const TYPE_ORDER = [
+  "Test",
+  "ODI",
+  "T20I",
+  "T20",
+  "First-class",
+  "List A",
+  "Other",
+];
 
 /**
  * @param {Object} props

@@ -3,13 +3,13 @@
  * @description Sort field buttons with ascending/descending toggle.
  */
 
-import '../styles/components/SortControls.css';
+import "../styles/components/SortControls.css";
 
 /** @type {Array<{field: string, label: string}>} */
 const SORT_OPTIONS = [
-  { field: 'firstname', label: 'First Name' },
-  { field: 'id', label: 'ID' },
-  { field: 'updated_at', label: 'Recently Updated' },
+  { field: "firstname", label: "First Name" },
+  { field: "id", label: "ID" },
+  { field: "updated_at", label: "Recently Updated" },
 ];
 
 /**
@@ -26,9 +26,9 @@ export function SortControls({ sortField, sortOrder, onSortChange }) {
    */
   function handleClick(field) {
     if (field === sortField) {
-      onSortChange(field, 'asc' === sortOrder ? 'desc' : 'asc');
+      onSortChange(field, "asc" === sortOrder ? "desc" : "asc");
     } else {
-      onSortChange(field, 'asc');
+      onSortChange(field, "asc");
     }
   }
 
@@ -42,10 +42,10 @@ export function SortControls({ sortField, sortOrder, onSortChange }) {
           return (
             <button
               key={field}
-              className={`sort-btn${isActive ? ' sort-btn--active' : ''}`}
+              className={`sort-btn${isActive ? " sort-btn--active" : ""}`}
               onClick={() => handleClick(field)}
               aria-pressed={isActive}
-              aria-label={`Sort by ${label} ${isActive ? ('asc' === sortOrder ? 'ascending' : 'descending') : ''}`}
+              aria-label={`Sort by ${label} ${isActive ? ("asc" === sortOrder ? "ascending" : "descending") : ""}`}
             >
               {label}
               {isActive && (
@@ -55,7 +55,10 @@ export function SortControls({ sortField, sortOrder, onSortChange }) {
                   stroke="currentColor"
                   strokeWidth="2.5"
                   aria-hidden="true"
-                  style={{ transform: 'asc' === sortOrder ? 'rotate(0deg)' : 'rotate(180deg)' }}
+                  style={{
+                    transform:
+                      "asc" === sortOrder ? "rotate(0deg)" : "rotate(180deg)",
+                  }}
                 >
                   <polyline points="18 15 12 9 6 15" />
                 </svg>

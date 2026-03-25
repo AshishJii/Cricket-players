@@ -14,13 +14,15 @@ export const PAGE_SIZE = 12;
  * @param {string} filters.search - Substring to match against player last name (case-insensitive).
  * @param {string|number} filters.country - country_id to filter by, or '' for no filter.
  * @param {string} filters.position - Position name to filter by, or '' for no filter.
+ * @param {string} filters.career - Career type to filter by, or '' for no filter.
+ * @param {Object} [careerMap] - Optional map of `careerType -> array of playerIds`.
  * @returns {Array<Object>} Filtered array of players.
  */
-export function filterPlayers(players, { search, country, position }) {
+export function filterPlayers(players, { search, country, position, career }, careerMap = null) {
   return players.filter((player) => {
     if (search) {
       const query = search.toLowerCase();
-      const lastName = (player.lastname || '').toLowerCase();
+      const lastName = (player.lastname || "").toLowerCase();
       if (!lastName.includes(query)) return false;
     }
 
@@ -29,8 +31,15 @@ export function filterPlayers(players, { search, country, position }) {
     }
 
     if (position) {
-      const positionName = player.position?.name || '';
+      const positionName = player.position?.name || "";
       if (positionName !== position) return false;
+    }
+
+    if (career) {
+      // If the map isn't loaded yet, return false to show zero/loading until mapped
+      if (!careerMap) return false;
+      const allowedIds = careerMap[career] || [];
+      if (!allowedIds.includes(player.id)) return false;
     }
 
     return true;
@@ -50,13 +59,13 @@ export function sortPlayers(players, sortField, sortOrder) {
     let aVal = a[sortField];
     let bVal = b[sortField];
 
-    if ('string' === typeof aVal) {
+    if ("string" === typeof aVal) {
       aVal = aVal.toLowerCase();
-      bVal = (bVal || '').toLowerCase();
+      bVal = (bVal || "").toLowerCase();
     }
 
-    if (aVal < bVal) return 'asc' === sortOrder ? -1 : 1;
-    if (aVal > bVal) return 'asc' === sortOrder ? 1 : -1;
+    if (aVal < bVal) return "asc" === sortOrder ? -1 : 1;
+    if (aVal > bVal) return "asc" === sortOrder ? 1 : -1;
     return 0;
   });
   return sorted;

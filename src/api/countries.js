@@ -3,7 +3,7 @@
  * @description API functions for fetching country data from SportMonks.
  */
 
-import { apiGet } from './client.js';
+import { apiGet } from "./client.js";
 
 /**
  * Fetches all countries from the SportMonks API.
@@ -11,5 +11,5 @@ import { apiGet } from './client.js';
  * @returns {Promise<Array<Object>>} Array of country objects.
  */
 export async function fetchAllCountries() {
-  return apiGet('/countries');
+  return apiGet("/countries");
 }

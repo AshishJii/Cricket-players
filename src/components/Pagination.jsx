@@ -4,7 +4,7 @@
  * Shows up to 7 page buttons with ellipsis for large page counts.
  */
 
-import '../styles/components/Pagination.css';
+import "../styles/components/Pagination.css";
 
 /**
  * Generates the page numbers to display, inserting nulls for ellipsis positions.
@@ -42,7 +42,12 @@ function buildPageRange(currentPage, totalPages) {
  * @param {number} props.totalItems - Total filtered items count.
  * @param {Function} props.onPageChange - Called with the new page number.
  */
-export function Pagination({ currentPage, totalPages, totalItems, onPageChange }) {
+export function Pagination({
+  currentPage,
+  totalPages,
+  totalItems,
+  onPageChange,
+}) {
   if (1 >= totalPages) return null;
 
   const pageRange = buildPageRange(currentPage, totalPages);
@@ -50,7 +55,7 @@ export function Pagination({ currentPage, totalPages, totalItems, onPageChange }
   return (
     <nav className="pagination" aria-label="Pagination">
       <span className="pagination__info">
-        {totalItems} player{1 !== totalItems ? 's' : ''} found
+        {totalItems} player{1 !== totalItems ? "s" : ""} found
       </span>
 
       {/* Previous */}
@@ -76,20 +81,24 @@ export function Pagination({ currentPage, totalPages, totalItems, onPageChange }
       {/* Page numbers */}
       {pageRange.map((page, index) =>
         null === page ? (
-          <span key={`ellipsis-${index}`} className="pagination__ellipsis" aria-hidden="true">
+          <span
+            key={`ellipsis-${index}`}
+            className="pagination__ellipsis"
+            aria-hidden="true"
+          >
             …
           </span>
         ) : (
           <button
             key={page}
-            className={`pagination__btn${page === currentPage ? ' pagination__btn--active' : ''}`}
+            className={`pagination__btn${page === currentPage ? " pagination__btn--active" : ""}`}
             onClick={() => onPageChange(page)}
             aria-label={`Page ${page}`}
-            aria-current={page === currentPage ? 'page' : undefined}
+            aria-current={page === currentPage ? "page" : undefined}
           >
             {page}
           </button>
-        )
+        ),
       )}
 
       {/* Next */}

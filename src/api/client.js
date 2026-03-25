@@ -4,8 +4,8 @@
  * Injects api_token into every request automatically.
  */
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api/v2.0';
-const API_KEY = import.meta.env.VITE_API_KEY || '';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "/api/v2.0";
+const API_KEY = import.meta.env.VITE_API_KEY || "";
 
 /**
  * Builds a full API URL with the api_token appended.
@@ -16,11 +16,13 @@ const API_KEY = import.meta.env.VITE_API_KEY || '';
  */
 function buildUrl(path, params = {}) {
   // If API_BASE_URL is a relative path (like /api/v2.0 for proxy), we must provide a base url
-  const base = API_BASE_URL.startsWith('http') ? undefined : window.location.origin;
+  const base = API_BASE_URL.startsWith("http")
+    ? undefined
+    : window.location.origin;
   const url = new URL(`${API_BASE_URL}${path}`, base);
-  url.searchParams.set('api_token', API_KEY);
+  url.searchParams.set("api_token", API_KEY);
   Object.entries(params).forEach(([key, value]) => {
-    if (null !== value && undefined !== value && '' !== value) {
+    if (null !== value && undefined !== value && "" !== value) {
       url.searchParams.set(key, value);
     }
   });
@@ -39,9 +41,9 @@ export async function apiGet(path, params = {}) {
   const url = buildUrl(path, params);
 
   const response = await fetch(url, {
-    method: 'GET',
+    method: "GET",
     headers: {
-      Accept: 'application/json',
+      Accept: "application/json",
     },
   });
 

@@ -10,14 +10,14 @@
  * @param {string} [locale='en-GB'] - BCP 47 locale tag.
  * @returns {string} Formatted date string, or '—' if input is falsy.
  */
-export function formatDate(dateString, locale = 'en-GB') {
-  if (!dateString) return '—';
+export function formatDate(dateString, locale = "en-GB") {
+  if (!dateString) return "—";
   const date = new Date(dateString);
-  if (isNaN(date.getTime())) return '—';
+  if (isNaN(date.getTime())) return "—";
   return date.toLocaleDateString(locale, {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
+    year: "numeric",
+    month: "long",
+    day: "numeric",
   });
 }
 

@@ -3,9 +3,9 @@
  * @description Root application component. Sets up React Router with two routes.
  */
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { PlayersPage } from './pages/PlayersPage.jsx';
-import { PlayerDetailPage } from './pages/PlayerDetailPage.jsx';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { PlayersPage } from "./pages/PlayersPage.jsx";
+import { PlayerDetailPage } from "./pages/PlayerDetailPage.jsx";
 
 /**
  * Application root with client-side routing.

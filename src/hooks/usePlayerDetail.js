@@ -4,9 +4,9 @@
  * Checks IndexedDB first, then fetches from the API.
  */
 
-import { useState, useEffect } from 'react';
-import { fetchPlayerById } from '../api/players.js';
-import { getCachedPlayerDetail, setCachedPlayerDetail } from '../db/index.js';
+import { useState, useEffect } from "react";
+import { fetchPlayerById } from "../api/players.js";
+import { getCachedPlayerDetail, setCachedPlayerDetail } from "../db/index.js";
 
 /**
  * @typedef {Object} PlayerDetailResult
@@ -54,7 +54,7 @@ export function usePlayerDetail(playerId) {
         }
       } catch (err) {
         if (!cancelled) {
-          setError(err.message || 'Failed to load player details.');
+          setError(err.message || "Failed to load player details.");
         }
       } finally {
         if (!cancelled) {

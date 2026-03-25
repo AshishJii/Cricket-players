@@ -3,9 +3,9 @@
  * @description Hook to load all countries from IndexedDB cache, falling back to the API.
  */
 
-import { useState, useEffect } from 'react';
-import { fetchAllCountries } from '../api/countries.js';
-import { getCachedCountries, setCachedCountries } from '../db/index.js';
+import { useState, useEffect } from "react";
+import { fetchAllCountries } from "../api/countries.js";
+import { getCachedCountries, setCachedCountries } from "../db/index.js";
 
 /**
  * @typedef {Object} CountriesResult
@@ -50,7 +50,7 @@ export function useCountries() {
         }
       } catch (err) {
         if (!cancelled) {
-          setError(err.message || 'Failed to load countries.');
+          setError(err.message || "Failed to load countries.");
         }
       } finally {
         if (!cancelled) {

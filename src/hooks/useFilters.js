@@ -4,8 +4,8 @@
  * with URL search parameters for shareable links.
  */
 
-import { useCallback } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useCallback } from "react";
+import { useSearchParams } from "react-router-dom";
 
 /** @typedef {'firstname'|'id'|'updated_at'} SortField */
 /** @typedef {'asc'|'desc'} SortOrder */
@@ -30,12 +30,13 @@ export function useFilters() {
 
   /** @type {Filters} */
   const filters = {
-    search: searchParams.get('search') || '',
-    country: searchParams.get('country') || '',
-    position: searchParams.get('position') || '',
-    sort: searchParams.get('sort') || 'firstname',
-    order: searchParams.get('order') || 'asc',
-    page: parseInt(searchParams.get('page') || '1', 10),
+    search: searchParams.get("search") || "",
+    country: searchParams.get("country") || "",
+    position: searchParams.get("position") || "",
+    career: searchParams.get("career") || "",
+    sort: searchParams.get("sort") || "updated_at",
+    order: searchParams.get("order") || "desc",
+    page: parseInt(searchParams.get("page")) || 1,
   };
 
   /**
@@ -49,20 +50,20 @@ export function useFilters() {
       setSearchParams((prev) => {
         const next = new URLSearchParams(prev);
         Object.entries(updates).forEach(([key, value]) => {
-          if (null === value || '' === value) {
+          if (null === value || "" === value) {
             next.delete(key);
           } else {
             next.set(key, String(value));
           }
         });
         // Reset to page 1 when anything other than page itself changes
-        if (!('page' in updates)) {
-          next.set('page', '1');
+        if (!("page" in updates)) {
+          next.set("page", "1");
         }
         return next;
       });
     },
-    [setSearchParams]
+    [setSearchParams],
   );
 
   /**

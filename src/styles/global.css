@@ -2,8 +2,8 @@
  * Global Styles – Reset, base elements, and utility classes.
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-@import './variables.css';
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import "./variables.css";
 
 /* ─── Reset & Base ─── */
 *,
